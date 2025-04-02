@@ -1,0 +1,290 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+
+.root {
+    display: grid;
+}
+
+:root {
+    --primary-color: #040926;
+    --bg-color: #f2f2f2;
+    --white: #fff;
+    --hover-color: #e5e7eb;
+    --border-color: #e5e7eb;
+}
+
+
+.sidebar {
+    display: inline-flex;
+    height: 1024px;
+
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+    flex-shrink: 0;
+    height: 100vh;
+
+    background-color: var(--bg-color);
+    transition: width 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.sidebar-expanded {
+    width: 320px;
+    height: 1024px;
+    
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+    flex-shrink: 0;
+}
+
+.sidebar-collapsed {
+    width: 64px;
+}
+
+
+.sidebar-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.sidebar-collapsed .header-left {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+/* Buttons */
+.sidebar-button {
+    display: flex;
+    width: 42px;
+    height: 42px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    aspect-ratio: 1/1;
+    border: none;
+    cursor: pointer;
+
+}
+
+.sidebar-button img {
+    display: flex;
+    width: 24px;
+    height: 24px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.new-chat-button {
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 42px;
+    height: 42px;
+    padding: 8px;
+    gap: 8px;
+    aspect-ratio: 1/1;
+
+}
+
+.new-chat-button img {
+    display: flex;
+    width: 24px;
+    height: 24px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.search-button {
+    display: flex;
+    width: 42px;
+    height: 42px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    aspect-ratio: 1/1;
+    border: none;
+    cursor: pointer;
+
+}
+
+.search-button img {
+    width: 24px;
+    height: 24px;
+    padding: 2px;
+    flex-shrink: 0;
+    aspect-ratio: 1/1;
+}
+
+.sidebar-button:hover {
+    background-color: var(--hover-color);
+    border-radius: 8px;
+}
+
+.new-chat-button:hover,
+.search-button:hover {
+    background-color: var(--hover-color);
+    border-radius: 8px;
+}
+
+/* Content Section */
+.sidebar-content {
+    padding: 80px 8px 16px 8px;
+    height: 100%;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* ... existing code ... */
+
+/* Dropdown Buttons */
+.dropdown-button,
+.dropdown-tool-button {
+    display: flex;
+    padding: 12px 0px 12px 8px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    align-self: stretch;
+    width: 100%;
+
+    border: none;
+
+    cursor: pointer;
+    color: var(--primary-color);
+    font-size: 16px;
+    font-weight: 500;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+
+
+.dropdown-button::after,
+.dropdown-tool-button::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: -5px;
+ /* Xətti sola genişləndir */
+    width: calc(100% + 100px); /* Xətti hər iki tərəfə 5px artır */
+    height: 1px;
+    background: #ddd; /* Xətt rəngi */
+}
+
+
+
+.dropdown-button span {
+    color: var(--Blue, #040926);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%;
+    color: var(--Blue, #040926);
+
+}
+
+
+.dropdown-icon {
+    background: #fff;
+    border-radius: 50%;
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    stroke-width: 1px;
+    stroke: var(--Utilities-Utility-5, #666F8D);
+}
+
+
+.chat-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.chat-date {
+    padding: 0 8px;
+    color: var(--primary-color);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 130%;
+}
+
+/* List Items */
+.chat-item,
+.tool-item {
+    display: flex;
+    padding: 12px 17px;
+    align-items: center;
+    gap: 16px;
+    color: var(--primary-color);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 130%;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    text-align: left;
+    width: 100%;
+    background: transparent;
+    color: var(--Blue, #040926);
+
+    font-style: normal;
+
+}
+
+/* 
+.chat-item:hover,
+.tool-item:hover {
+    background-color: var(--hover-color);
+} */
+
+/* Dropdown Content */
+.dropdown-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px;
+    background: transparent;
+    border-radius: 8px;
+    margin-top: 1px;
+}
+
+/* App Layout */
+.app-container {
+    display: flex;
+    height: 100vh;
+}
+
+.main-content {
+    flex: 1;
+    padding: 24px;
+}
