@@ -1,7 +1,7 @@
 
 
 import './App.css';
-import ChatInterface from './components/ChatInterface';
+import ChatInterface from '/src/components/ChatInterface';
 import React from 'react';
 import Sidebar from './components/Sidebar';
 import turinglogo from "./assets/turinglogo(lightblue).png"
@@ -45,10 +45,12 @@ function App() {
   };
 
   return (
-    <div className="App">
+   
      
       <div className="container">
         <Sidebar chats={chats} />
+        
+        <div className="mainSection">
         <header className="header">
         <div className="logo">
           <img src={turinglogo} alt="Turing Logo" />
@@ -57,11 +59,10 @@ function App() {
           <img src={userlogo} alt="User" />
         </div>
       </header>
-        <div className="mainSection">
           <ChatInterface onNewMessage={handleNewMessage} />
         </div>
       </div>
-    </div>
+   
   );
 }
 

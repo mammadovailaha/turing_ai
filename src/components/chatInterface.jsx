@@ -57,13 +57,16 @@ function ChatInterface({ onNewMessage }) {
               <img src={vectorlogo} alt=""/>
             </button>
           </div>
+          
         </div>
+       
       </form>
-      
       <footer className="footer">
         <p>Turing AI-dan istifadə etdikdə limitli olduğunu unutmayın.</p>
       </footer>
+     
     </main>
+    
   );
 }
 

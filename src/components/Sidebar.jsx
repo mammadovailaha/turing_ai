@@ -13,7 +13,7 @@ const Sidebar = ({ chats = [] }) => {
   const [isChatOpen, setIsChatOpen] = useState(true);
   const [isToolsOpen, setIsToolsOpen] = useState(true);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
+  // const [searchQuery, setSearchQuery] = useState('');
 
   // Default chat data
   const defaultChatGroups = [
@@ -52,10 +52,10 @@ const Sidebar = ({ chats = [] }) => {
     console.log('Yeni chat yaradıldı');
   };
 
-  const handleSearch = (e) => {
-    setSearchQuery(e.target.value);
-    console.log('Axtarış:', e.target.value);
-  };
+  // const handleSearch = (e) => {
+  //   setSearchQuery(e.target.value);
+  //   console.log('Axtarış:', e.target.value);
+  // };
 
   // Render helper functions
   const renderHeader = () => (
@@ -85,19 +85,19 @@ const Sidebar = ({ chats = [] }) => {
     </div>
   );
 
-  const renderSearchInput = () => (
-    isSearchOpen && isOpen && (
-      <div className="search-container">
-        <input
-          type="text"
-          value={searchQuery}
-          onChange={handleSearch}
-          placeholder="Axtarış..."
-          className="search-input"
-        />
-      </div>
-    )
-  );
+  // const renderSearchInput = () => (
+  //   isSearchOpen && isOpen && (
+  //     <div className="search-container">
+  //       <input
+  //         type="text"
+  //         value={searchQuery}
+  //         onChange={handleSearch}
+  //         placeholder="Axtarış..."
+  //         className="search-input"
+  //       />
+  //     </div>
+  //   )
+  // );
 
   const renderChatsSection = () => (
     <div style={{ marginBottom: '16px' }}>
@@ -162,12 +162,12 @@ const Sidebar = ({ chats = [] }) => {
   return (
     <div className={`sidebar ${isOpen ? 'sidebar-expanded' : 'sidebar-collapsed'}`}>
       {renderHeader()}
-      {renderSearchInput()}
+      
       
       {isOpen && (
         <div className="sidebar-content">
-          {renderChatsSection()}
-          {renderToolsSection()}
+          {/* { {renderChatsSection()} */}
+         /* {renderToolsSection()} */}
         </div>
       )}
     </div>
