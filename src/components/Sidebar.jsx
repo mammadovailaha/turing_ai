@@ -12,7 +12,6 @@ const Sidebar = ({ chats = [] }) => {
   const [isOpen, setIsOpen] = useState(true);
   const [isChatOpen, setIsChatOpen] = useState(true);
   const [isToolsOpen, setIsToolsOpen] = useState(true);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
   // const [searchQuery, setSearchQuery] = useState('');
 
   // Default chat data
@@ -75,14 +74,24 @@ const Sidebar = ({ chats = [] }) => {
         </button>
       </div>
       {isOpen && (
+        <div className="search-wrapper">
+        <input
+          type="text"
+          // value={searchQuery}
+          // onChange={handleSearch}
+          placeholder="Axtar..."
+          className="search-input"
+        />
         <button 
           className="search-button"
-          onClick={() => setIsSearchOpen(!isSearchOpen)}
         >
           <img src="/src/assets/Search.png" alt="Search" width="24" height="24" />
         </button>
+        </div>
       )}
     </div>
+
+    
   );
 
   // const renderSearchInput = () => (
@@ -167,7 +176,7 @@ const Sidebar = ({ chats = [] }) => {
       {isOpen && (
         <div className="sidebar-content">
           {/* { {renderChatsSection()} */}
-         /* {renderToolsSection()} */}
+          {/* {renderToolsSection()} } */}
         </div>
       )}
     </div>
