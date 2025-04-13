@@ -10,7 +10,14 @@ const DropdownIcon = () => (
 const Sidebar = ({ chats = [] }) => {
   // State
   const [isOpen, setIsOpen] = useState(true);
+<<<<<<< HEAD
   const [showChatOnly, setShowChatOnly] = useState(false);
+=======
+  const [isChatOpen, setIsChatOpen] = useState(true);
+  const [isToolsOpen, setIsToolsOpen] = useState(true);
+  // const [searchQuery, setSearchQuery] = useState('');
+
+>>>>>>> 939be0e5f37453dd84f95e26d41711678106d194
   // Default chat data
   const defaultChatGroups = [
     {
@@ -96,8 +103,29 @@ const Sidebar = ({ chats = [] }) => {
         </button>
 
       </div>
+<<<<<<< HEAD
 
+=======
+      {isOpen && (
+        <div className="search-wrapper">
+        <input
+          type="text"
+          // value={searchQuery}
+          // onChange={handleSearch}
+          placeholder="Axtar..."
+          className="search-input"
+        />
+        <button 
+          className="search-button"
+        >
+          <img src="/src/assets/Search.png" alt="Search" width="24" height="24" />
+        </button>
+        </div>
+      )}
+>>>>>>> 939be0e5f37453dd84f95e26d41711678106d194
     </div>
+
+    
   );
 
   // chat section
@@ -151,8 +179,13 @@ const Sidebar = ({ chats = [] }) => {
 
       {isOpen && (
         <div className="sidebar-content">
+<<<<<<< HEAD
           {renderChatsSection()}
 
+=======
+          {/* { {renderChatsSection()} */}
+          {/* {renderToolsSection()} } */}
+>>>>>>> 939be0e5f37453dd84f95e26d41711678106d194
         </div>
       )}
     </div>
