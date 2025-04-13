@@ -45,24 +45,24 @@ function App() {
   };
 
   return (
-   
-     
-      <div className="container">
-        <Sidebar chats={chats} />
-        
-        <div className="mainSection">
+
+
+    <div className="container">
+      <Sidebar chats={chats} />
+
+      <div className="mainSection">
         <header className="header">
-        <div className="logo">
-          <img src={turinglogo} alt="Turing Logo" />
-        </div>
-        <div className="user-icon">
-          <img src={userlogo} alt="User" />
-        </div>
-      </header>
-          <ChatInterface onNewMessage={handleNewMessage} />
-        </div>
+          <div className="logo">
+            <img src={turinglogo} alt="Turing Logo" />
+          </div>
+          <div className="user-icon">
+            <img src={userlogo} alt="User" />
+          </div>
+        </header>
+        <ChatInterface onNewMessage={handleNewMessage} />
       </div>
-   
+    </div>
+
   );
 }
 
