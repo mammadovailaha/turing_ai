@@ -63,6 +63,7 @@ function ChatInterface({ onNewMessage }) {
       </form>
       <footer className="footer">
         <p>Turing AI-dan istifadə etdikdə limitli olduğunu unutmayın.</p>
+        <div>?</div>
       </footer>
      
     </main>

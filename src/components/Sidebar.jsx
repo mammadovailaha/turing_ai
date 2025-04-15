@@ -3,17 +3,14 @@ import "./Sidebar.css";
 
 const DropdownIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="8" height="6" viewBox="0 0 8 6" fill="none">
-    <path d="M0.587183 1.16229L4.00001 4.83765L7.41284 1.16229" stroke="#666F8D" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M0.587183 1.16229L4.00001 4.83765L7.41284 1.16229" stroke="#666F8D" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
 
 const Sidebar = ({ chats = [] }) => {
   // State
   const [isOpen, setIsOpen] = useState(true);
-  const [isChatOpen, setIsChatOpen] = useState(true);
-  const [isToolsOpen, setIsToolsOpen] = useState(true);
-  // const [searchQuery, setSearchQuery] = useState('');
-
+  const [showChatOnly, setShowChatOnly] = useState(false);
   // Default chat data
   const defaultChatGroups = [
     {
@@ -39,151 +36,119 @@ const Sidebar = ({ chats = [] }) => {
     }
   ];
 
-  // Data
-  const aiTools = [
-    { id: '1', name: 'Gemini' },
-    { id: '2', name: 'DeepSeek' },
-    { id: '3', name: 'Claude' }
-  ];
+  //Icon click func
+
+  const handleSearchClick = () => {
+    setShowChatOnly(true);
+  };
 
   // Handlers
   const handleNewChat = () => {
     console.log('Yeni chat yaradıldı');
   };
 
-  // const handleSearch = (e) => {
-  //   setSearchQuery(e.target.value);
-  //   console.log('Axtarış:', e.target.value);
-  // };
+
 
   // Render helper functions
   const renderHeader = () => (
     <div className="sidebar-header">
       <div className="header-left">
-        <button 
+        <button
           onClick={() => setIsOpen(!isOpen)}
           className="sidebar-button"
         >
-          <img src="/src/assets/sidebarOpen.png" alt="Menu" width="20" height="20" />
+          <img src="/src/assets/openSidebarIcon.png" alt="Menu" width="20" height="20" />
         </button>
-        <button 
+        <button
           onClick={handleNewChat}
           className="new-chat-button"
         >
-          <img src="/src/assets/newChat.png" alt="New Chat" width="24" height="24" />
+          <img src="/src/assets/newChatIcon.png" alt="New Chat" width="24" height="24" />
         </button>
-        <div className="page-colors">
-          <div className='color1'></div>
-          <div className='color2'></div>
-          <div className='color3'></div>
-          <div className='color4'></div>
-
-        </div>
+        <button className='tool'>
+          <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 42 42" fill="none">
+            <circle cx="21" cy="21" r="21" fill="#D9D9D9" /></svg>
+        </button>
+        <button className='tool'>
+          <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 42 42" fill="none">
+            <circle cx="21" cy="21" r="21" fill="#292D32" /> </svg>
+        </button>
+        <button className='tool'>
+          <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 42 42" fill="none">
+            <circle cx="21" cy="21" r="21" fill="#FF4401" /></svg>
+        </button>
+        <button className='tool'>
+          <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 42 42" fill="none">
+            <circle cx="21" cy="21" r="21" fill="#D9D9D9" />
+          </svg>
+        </button>
+        <button className='tool'>
+          <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 42 42" fill="none">
+            <circle cx="21" cy="21" r="21" fill="#B52B00" /></svg>
+        </button>
+        <button className='tool'>
+          <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 42 42" fill="none">
+            <circle cx="21" cy="21" r="21" fill="#D9D9D9" /> </svg>
+        </button>
+        
       </div>
-      {isOpen && (
-        <div className="search-wrapper">
-        <input
-          type="text"
-          // value={searchQuery}
-          // onChange={handleSearch}
-          placeholder="Axtar..."
-          className="search-input"
-        />
-        <button 
-          className="search-button"
-        >
-          <img src="/src/assets/Search.png" alt="Search" width="24" height="24" />
-        </button>
-        </div>
-      )}
+      
     </div>
-
-    
   );
 
-  // const renderSearchInput = () => (
-  //   isSearchOpen && isOpen && (
-  //     <div className="search-container">
-  //       <input
-  //         type="text"
-  //         value={searchQuery}
-  //         onChange={handleSearch}
-  //         placeholder="Axtarış..."
-  //         className="search-input"
-  //       />
-  //     </div>
-  //   )
-  // );
+  // chat section
 
   const renderChatsSection = () => (
-    <div style={{ marginBottom: '16px' }}>
-      <button
-        onClick={() => setIsChatOpen(!isChatOpen)}
-        className={`dropdown-button chats-button ${isChatOpen ? 'is-open' : ''}`}
-      >
-        <span>Chats</span>
-        <span className="dropdown-icon">
-          <DropdownIcon />
-        </span>
-      </button>
-      
-      {isChatOpen && (
-        <div className="dropdown-content">
-          {(chats.length > 0 ? chats : defaultChatGroups).map((group) => (
+    <div className='chat-section'>
+      <div className={`chat-content ${showChatOnly ? 'chat-only' : ''}`}>
+        <div className='search-section' onClick={handleSearchClick}>
+          <div className="search-input">
+            <input type="text" name="search" 
+            placeholder='Axtar...'/>
+          </div>
+          <div className="search-icon-background">
+            <div className='search-icon'>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"  fill="none" className='search-icon-svg'>
+                <path d="M21.5999 21.6L16.6344 16.6345M2.3999 10.6759C2.3999 6.10525 6.10513 2.40002 10.6758 2.40002C15.2464 2.40002 18.9516 6.10525 18.9516 10.6759C18.9516 15.2465 15.2464 18.9517 10.6758 18.9517C6.10513 18.9517 2.3999 15.2465 2.3999 10.6759Z" stroke="white" stroke-width="1.37143" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </div>
+          </div>
+
+        </div>
+
+        {showChatOnly && (
+          (chats.length > 0 ? chats : defaultChatGroups).map((group) => (
             <div key={group.date} className="chat-group">
               <div className="chat-date">{group.date}</div>
               {group.chats.map((chat) => (
-                <div
-                  key={chat.id}
-                  className="chat-item"
-                >
+                <div key={chat.id} className="chat-item">
                   {chat.title}
                 </div>
               ))}
             </div>
-          ))}
-        </div>
-      )}
+          ))
+        )}
+      </div>
+      {/* <div className="full-sidebar-content">
+      
+      </div> */}
     </div>
+
+
   );
 
-  const renderToolsSection = () => (
-    <div>
-      <button
-        onClick={() => setIsToolsOpen(!isToolsOpen)}
-        className="dropdown-tool-button"
-      >
-        <span>Other Turing Tools</span>
-        <span className="dropdown-icon">
-          <DropdownIcon />
-        </span>
-      </button>
-      
-      {isToolsOpen && (
-        <div className="dropdown-content">
-          {aiTools.map((tool) => (
-            <div
-              key={tool.id}
-              className="tool-item"
-            >
-              {tool.name}
-            </div>
-          ))}
-        </div>
-      )}
-    </div>
-  );
+
 
   // Main render
   return (
-    <div className={`sidebar ${isOpen ? 'sidebar-expanded' : 'sidebar-collapsed'}`}>
+    <div className='sidebar-collapsed'>
       {renderHeader()}
-      
-      
+
+
       {isOpen && (
         <div className="sidebar-content">
-          {/* { {renderChatsSection()} */}
-          {/* {renderToolsSection()} } */}
+          {renderChatsSection()}
+
         </div>
       )}
     </div>

@@ -1,11 +1,10 @@
-
-
 import './App.css';
 import ChatInterface from '/src/components/ChatInterface';
 import React from 'react';
 import Sidebar from './components/Sidebar';
 import turinglogo from "./assets/turinglogo(lightblue).png"
 import userlogo from "./assets/profile.svg"
+
 
 function App() {
   // Chat state'ini burada saxlayaq ki, həm Sidebar həm də ChatInterface istifadə edə bilsin
@@ -45,24 +44,24 @@ function App() {
   };
 
   return (
-   
-     
-      <div className="container">
-        <Sidebar chats={chats} />
-        
-        <div className="mainSection">
+
+
+    <div className="container">
+      <Sidebar chats={chats}/>
+
+      <div className="mainSection">
         <header className="header">
         <div className="logo">
-          <img src={turinglogo} alt="Turing Logo" />
-        </div>
-        <div className="user-icon">
-          <img src={userlogo} alt="User" />
-        </div>
-      </header>
-          <ChatInterface onNewMessage={handleNewMessage} />
-        </div>
+            <img src={turinglogo} alt="Turing Logo" />
+          </div>
+          <div className="user-icon">
+            <img src={userlogo} alt="User" />
+          </div>
+        </header>
+        <ChatInterface onNewMessage={handleNewMessage} />
       </div>
-   
+    </div>
+
   );
 }
 

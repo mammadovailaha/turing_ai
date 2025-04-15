@@ -26,6 +26,7 @@ body {
   margin: auto;
   justify-content: space-between;
   align-items: center;
+  
 
 
 }
@@ -36,7 +37,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
+  padding: 0 70px;
   background-color: #fff;
 }
 
@@ -172,7 +173,9 @@ button {
 }
 
 .footer {
-  margin: 280px 0 0 0;
+  position: absolute;
+  left: 44%;
+  bottom: 18px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -183,6 +186,22 @@ button {
   font-weight: 400;
   line-height: 140%;
 
+}
+
+.footer>div{
+  display: flex;
+  position: relative;
+  left: 170%;
+  width: 42px;
+  height: 42px;
+  padding: 8px;
+  border-radius: 99px;
+  border:1px solid #E2E2E2;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 400;
+  color: #292D32;
 }
 
 @media (max-width: 768px) {
