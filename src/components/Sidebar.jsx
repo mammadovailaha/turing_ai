@@ -72,6 +72,13 @@ const Sidebar = ({ chats = [] }) => {
         >
           <img src="/src/assets/newChat.png" alt="New Chat" width="24" height="24" />
         </button>
+        <div className="page-colors">
+          <div className='color1'></div>
+          <div className='color2'></div>
+          <div className='color3'></div>
+          <div className='color4'></div>
+
+        </div>
       </div>
       {isOpen && (
         <div className="search-wrapper">
