@@ -57,13 +57,13 @@ const Sidebar = ({ chats = [] }) => {
           onClick={() => setIsOpen(!isOpen)}
           className="sidebar-button"
         >
-          <img src="/src/assets/openSidebarIcon.png" alt="Menu" width="20" height="20" />
+          <img src="/src/assets/openSidebarIcon.png" alt="Menu"  />
         </button>
         <button
           onClick={handleNewChat}
           className="new-chat-button"
         >
-          <img src="/src/assets/newChatIcon.png" alt="New Chat" width="24" height="24" />
+          <img src="/src/assets/newChatIcon.png" alt="New Chat" width="34" height="34" />
         </button>
         <button className='tool'>
           <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="0 0 42 42" fill="none">
